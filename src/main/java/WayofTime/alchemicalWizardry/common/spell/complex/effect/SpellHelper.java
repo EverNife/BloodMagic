@@ -66,6 +66,10 @@ public class SpellHelper {
                 false) == null;
     }
 
+    public static String getWorldNameFromEntity(Entity entity){
+        return entity.worldObj.getSaveHandler().getWorldDirectoryName();
+    }
+
     public static Vec3 createVec3(double x, double y, double z) {
         return APISpellHelper.createVec3(x, y, z);
     }

@@ -9,6 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.AxisAlignedBB;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.world.World;
 
 import WayofTime.alchemicalWizardry.AlchemicalWizardry;
@@ -38,6 +39,16 @@ public class RitualEffectSummonMeteor extends RitualEffect {
             ritualStone.setCooldown(0);
         }
 
+        EntityPlayer entityOwner = SpellHelper.getPlayerForUsername(owner);
+        if (entityOwner == null){
+            return;
+        }
+
+        if (!SpellHelper.getWorldNameFromEntity(entityOwner).equalsIgnoreCase("Minerar")){
+            entityOwner.addChatComponentMessage(new ChatComponentText("§cVocê só pode usar esse ritual no /warp Minerar"));
+            return;
+        }
+
         List<EntityItem> entities = world.getEntitiesWithinAABB(
                 EntityItem.class,
                 AxisAlignedBB.getBoundingBox(x, y + 1, z, x + 1, y + 2, z + 1));
@@ -53,7 +64,6 @@ public class RitualEffectSummonMeteor extends RitualEffect {
                 int cost = MeteorRegistry.meteorList.get(meteorID).cost;
 
                 if (currentEssence < cost) {
-                    EntityPlayer entityOwner = SpellHelper.getPlayerForUsername(owner);
                     if (entityOwner != null) entityOwner.addPotionEffect(new PotionEffect(Potion.confusion.id, 80));
                     return;
                 }
