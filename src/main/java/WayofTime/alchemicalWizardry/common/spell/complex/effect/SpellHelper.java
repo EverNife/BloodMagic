@@ -66,7 +66,7 @@ public class SpellHelper {
                 false) == null;
     }
 
-    public static String getWorldNameFromEntity(Entity entity){
+    public static String getWorldNameFromEntity(Entity entity) {
         return entity.worldObj.getSaveHandler().getWorldDirectoryName();
     }
 

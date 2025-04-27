@@ -40,12 +40,13 @@ public class RitualEffectSummonMeteor extends RitualEffect {
         }
 
         EntityPlayer entityOwner = SpellHelper.getPlayerForUsername(owner);
-        if (entityOwner == null){
+        if (entityOwner == null) {
             return;
         }
 
-        if (!SpellHelper.getWorldNameFromEntity(entityOwner).equalsIgnoreCase("Minerar")){
-            entityOwner.addChatComponentMessage(new ChatComponentText("§cVocê só pode usar esse ritual no /warp Minerar"));
+        if (!SpellHelper.getWorldNameFromEntity(entityOwner).equalsIgnoreCase("Minerar")) {
+            entityOwner
+                    .addChatComponentMessage(new ChatComponentText("§cVocê só pode usar esse ritual no /warp Minerar"));
             return;
         }
 

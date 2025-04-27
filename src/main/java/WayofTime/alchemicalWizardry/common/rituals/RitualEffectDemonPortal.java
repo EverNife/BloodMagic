@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import WayofTime.alchemicalWizardry.AlchemicalWizardry;
-import WayofTime.alchemicalWizardry.common.spell.complex.effect.SpellHelper;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -25,6 +23,7 @@ import WayofTime.alchemicalWizardry.api.rituals.RitualEffect;
 import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 import WayofTime.alchemicalWizardry.api.tile.IBloodAltar;
 import WayofTime.alchemicalWizardry.common.demonVillage.tileEntity.TEDemonPortal;
+import WayofTime.alchemicalWizardry.common.spell.complex.effect.SpellHelper;
 import WayofTime.alchemicalWizardry.common.tileEntity.TEBellJar;
 
 public class RitualEffectDemonPortal extends RitualEffect {
@@ -50,12 +49,13 @@ public class RitualEffectDemonPortal extends RitualEffect {
         int z = ritualStone.getZCoord();
 
         EntityPlayer entityOwner = SpellHelper.getPlayerForUsername(owner);
-        if (entityOwner == null){
+        if (entityOwner == null) {
             return;
         }
 
-        if (!SpellHelper.getWorldNameFromEntity(entityOwner).equalsIgnoreCase("Minerar")){
-            entityOwner.addChatComponentMessage(new ChatComponentText("§cVocê só pode usar esse ritual no /warp Minerar"));
+        if (!SpellHelper.getWorldNameFromEntity(entityOwner).equalsIgnoreCase("Minerar")) {
+            entityOwner
+                    .addChatComponentMessage(new ChatComponentText("§cVocê só pode usar esse ritual no /warp Minerar"));
             return;
         }
 

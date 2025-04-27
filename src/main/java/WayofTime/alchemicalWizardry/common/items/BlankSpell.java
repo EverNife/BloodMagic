@@ -2,7 +2,6 @@ package WayofTime.alchemicalWizardry.common.items;
 
 import java.util.List;
 
-import WayofTime.alchemicalWizardry.integration.ModHookEventHelper;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -11,12 +10,13 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import WayofTime.alchemicalWizardry.AlchemicalWizardry;
 import WayofTime.alchemicalWizardry.common.tileEntity.TEHomHeart;
+import WayofTime.alchemicalWizardry.integration.ModHookEventHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraftforge.common.util.ForgeDirection;
 
 public class BlankSpell extends EnergyItems {
 
@@ -66,7 +66,13 @@ public class BlankSpell extends EnergyItems {
         if (!par2World.isRemote) {
             World world = DimensionManager.getWorld(getDimensionID(par1ItemStack));
 
-            if (ModHookEventHelper.cantInteract(par3EntityPlayer, par1ItemStack, (int) par3EntityPlayer.posX, (int) par3EntityPlayer.motionY, (int) par3EntityPlayer.posZ, ForgeDirection.UP)){
+            if (ModHookEventHelper.cantInteract(
+                    par3EntityPlayer,
+                    par1ItemStack,
+                    (int) par3EntityPlayer.posX,
+                    (int) par3EntityPlayer.motionY,
+                    (int) par3EntityPlayer.posZ,
+                    ForgeDirection.UP)) {
                 return par1ItemStack;
             }
 

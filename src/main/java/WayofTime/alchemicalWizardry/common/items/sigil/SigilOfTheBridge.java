@@ -117,7 +117,7 @@ public class SigilOfTheBridge extends EnergyItems implements ArmourUpgrade, ISig
 
     @Override
     public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
-        if (true)return;
+        if (true) return;
         if (!(par3Entity instanceof EntityPlayer)) {
             return;
         }

@@ -2,8 +2,6 @@ package WayofTime.alchemicalWizardry.common.items.sigil;
 
 import java.util.List;
 
-import WayofTime.alchemicalWizardry.api.items.interfaces.ISigil;
-import WayofTime.alchemicalWizardry.integration.ModHookEventHelper;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -20,10 +18,9 @@ import WayofTime.alchemicalWizardry.api.items.interfaces.IHolding;
 import WayofTime.alchemicalWizardry.api.items.interfaces.ISigil;
 import WayofTime.alchemicalWizardry.common.entity.projectile.EntityBloodLightProjectile;
 import WayofTime.alchemicalWizardry.common.items.EnergyItems;
+import WayofTime.alchemicalWizardry.integration.ModHookEventHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
 
 public class SigilBloodLight extends EnergyItems implements IHolding, ArmourUpgrade, ISigil {
 
@@ -63,7 +60,7 @@ public class SigilBloodLight extends EnergyItems implements IHolding, ArmourUpgr
             return true;
         }
 
-        if (ModHookEventHelper.cantBreak(par2EntityPlayer,par8,par9,par10)){
+        if (ModHookEventHelper.cantBreak(par2EntityPlayer, par8, par9, par10)) {
             return true;
         }
 
@@ -109,7 +106,11 @@ public class SigilBloodLight extends EnergyItems implements IHolding, ArmourUpgr
         }
 
         if (!par2World.isRemote) {
-            if (ModHookEventHelper.cantBreak((EntityPlayer) par3EntityPlayer,par3EntityPlayer.posX,par3EntityPlayer.posY,par3EntityPlayer.posZ)){
+            if (ModHookEventHelper.cantBreak(
+                    (EntityPlayer) par3EntityPlayer,
+                    par3EntityPlayer.posX,
+                    par3EntityPlayer.posY,
+                    par3EntityPlayer.posZ)) {
                 return par1ItemStack;
             }
             par2World.spawnEntityInWorld(new EntityBloodLightProjectile(par2World, par3EntityPlayer, 10));

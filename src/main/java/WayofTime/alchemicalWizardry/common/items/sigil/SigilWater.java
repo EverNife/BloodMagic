@@ -2,9 +2,6 @@ package WayofTime.alchemicalWizardry.common.items.sigil;
 
 import java.util.List;
 
-import WayofTime.alchemicalWizardry.api.items.interfaces.ISigil;
-import WayofTime.alchemicalWizardry.common.tileEntity.TESocket;
-import WayofTime.alchemicalWizardry.integration.ModHookEventHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,6 +24,7 @@ import WayofTime.alchemicalWizardry.api.items.interfaces.ArmourUpgrade;
 import WayofTime.alchemicalWizardry.api.items.interfaces.ISigil;
 import WayofTime.alchemicalWizardry.common.items.EnergyItems;
 import WayofTime.alchemicalWizardry.common.tileEntity.TESocket;
+import WayofTime.alchemicalWizardry.integration.ModHookEventHelper;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -134,9 +132,9 @@ public class SigilWater extends ItemBucket implements ArmourUpgrade, ISigil {
 
             if (this.canPlaceContainedLiquid(world, x, y, z, x, y, z)
                     && EnergyItems.syphonBatteries(stack, player, getEnergyUsed())) {
-                if (ModHookEventHelper.cantBreak(player,x,y,z)) {
+                if (ModHookEventHelper.cantBreak(player, x, y, z)) {
                     return false;
-                }else {
+                } else {
                     return this.tryPlaceContainedLiquid(world, x, y, z, x, y, z);
                 }
             }

@@ -83,8 +83,9 @@ public class SacrificialDagger extends Item {
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
 
-        if (player.getHealth() <= 2){
-            player.addChatComponentMessage(new ChatComponentText("§cVocê não tem vida suficiente para usar esse item!"));
+        if (player.getHealth() <= 2) {
+            player.addChatComponentMessage(
+                    new ChatComponentText("§cVocê não tem vida suficiente para usar esse item!"));
             return stack;
         }
 
