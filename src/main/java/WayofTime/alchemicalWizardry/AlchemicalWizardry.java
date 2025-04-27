@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import WayofTime.alchemicalWizardry.integration.ModHookEventHelper;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -3234,6 +3235,7 @@ public class AlchemicalWizardry {
 
     @EventHandler
     public void postInit(FMLPostInitializationEvent event) {
+        ModHookEventHelper.initialize();
         proxy.registerPostSideObjects();
         isGregTechLoaded = Loader.isModLoaded("gregtech");
         // TODO Thaumcraft Integration
